@@ -1,4 +1,3 @@
-
 #include "tmod.h"
 #include "ledmod.h"
 #include "printf.h"
@@ -25,7 +24,7 @@ uint32_t getIndex(find){
 	
 }
 
-int translate(input) {
+int translate(char input) {
 	//0 for success, 1 for failure
 	char ret[1000];
 	int pos = 0;

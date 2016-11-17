@@ -5,6 +5,6 @@
 
 int print_translation(const char* string);
 
-int translate(const char* string);
+int translate(char string);
 
 #endif //TMOD_H
