@@ -1,10 +1,11 @@
 #include "ledmod.h"
+#include "array.h"
 #include "gpio.h"
 #include "system_timer.h"
 
-int output(char* code[], unsigned int size) {
-    for(int i = 0; i < size; i++) {
-        if (parseCharacter(code[i]) == 1) {
+int output(Array code) {
+    for(size_t i = 0; i < code.used; i++) {
+        if (parseCharacter(code.array[i]) == 1) {
             return 1;
         }
     }
