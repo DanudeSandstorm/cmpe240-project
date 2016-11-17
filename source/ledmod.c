@@ -11,6 +11,12 @@ int output(char* code[], unsigned int size) {
     return 0;
 }
 
+/**
+Takes a string repensenting a morse code character
+Parses and calls the corresponding blink
+Delays between each blink;
+Longer delay after character is printed
+*/
 int parseCharacter(const char* character){
     unsigned int size = length(input);
     for (unsigned int i = 0; i < size; i++) {
@@ -25,21 +31,39 @@ int parseCharacter(const char* character){
             default:
                 break;
         }
+        timer_delay_ms(200);
     }
-    //TODO wait
+   timer_delay_ms(1000);
 }
 
+/*
+To represent a dot:
+turns on selected LED, 
+waits a shorter period of time,
+turns off LED
+*/
 void shortBlink() {
-    /*TODO
-    turn on
-    short wait
-    turn off
-    */
+    gpio[GPSET0] |= 1 << 16;
+
+    timer_delay_ms(200);
+
+    gpio[GPCLR0] |= 1 << 16;
 }
 
+/*
+To represent a dash:
+turns on selected LED, 
+waits a longer period of time,
+turns off LED
+*/
 void longBlink() {
-    //TODO
-    //long wait
+
+    gpio[GPSET0] |= 1 << 16;
+
+    timer_delay_ms(400);
+
+    gpio[GPCLR0] |= 1 << 16;
+
 }
 
 /*
