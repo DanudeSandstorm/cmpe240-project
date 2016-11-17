@@ -3,7 +3,7 @@
 #include "gpio.h"
 #include "system_timer.h"
 
-int output(Array code) {
+int output(Array* code) {
     for(size_t i = 0; i < code.used; i++) {
         if (parseCharacter(code.array[i]) == 1) {
             return 1;

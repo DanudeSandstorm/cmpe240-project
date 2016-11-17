@@ -1,17 +1,11 @@
 #include "tmod.h"
-#include "ledmod.h"
 #include "printf.h"
 #include "array.h"
 
-int translate(char* input, size_t charsGot) {
-	Array mcode;
-	initArray(&a, 8);
-
+int translate(Array* mcode, char* input, size_t charsGot) {
 	//For each character in inputed string
 	for (size_t i = 0; i < charsGot; ++i) {
 		char ch = buffer[i];
-		// To uppercase
-		//if ((ch >= 'a') && (ch <= 'z')) buffer[i] -= 32;
 
 		//Do lookup here
 		char* tran;
@@ -20,14 +14,9 @@ int translate(char* input, size_t charsGot) {
 		}
 
 		//Add translated value to "mcode"
-		insertArray(mcode, tran);
+		insertArray(&mcode, tran);
 	}
 	
-	print_translation(mcode);
-	output(mcode);
-
-	freeArray(&a);
-
 	return 0;
 }
 
@@ -61,11 +50,3 @@ char* lookup(char ch) {
 	return lookuptable[input];
 }
 
-int print_translation(Array code) {
-    //TODO format output
-	for(size_t i = 0; i < code.used; i++) {
-        if () {
-		}
-	}
-    return 0;
-}
