@@ -2,21 +2,21 @@
 #define ARRAY_H 
 
 typedef struct {
-  char *array;
+  char **array;
   size_t used;
   size_t size;
 } Array;
 
 void initArray(Array *a, size_t initialSize) {
-  a->array = (char *)malloc(initialSize * sizeof(char));
+  a->array = (char **)malloc(initialSize * sizeof(char *));
   a->used = 0;
   a->size = initialSize;
 }
 
-void insertArray(Array *a, char element) {
+void insertArray(Array *a, char* element) {
   if (a->used == a->size) {
     a->size *= 2;
-    a->array = (char *)realloc(a->array, a->size * sizeof(char));
+    a->array = (char **)realloc(a->array, a->size * sizeof(char *));
   }
   a->array[a->used++] = element;
 }
