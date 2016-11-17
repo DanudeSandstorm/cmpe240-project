@@ -1,6 +1,9 @@
 #include "uart.h"
 #include "tmod.h"
 #include "ledmod.h"
+#include "printf.h"
+
+void print_translation(Array* code);
 
 int main()
 {
@@ -25,11 +28,11 @@ int main()
     return 0;
 }
 
-int print_translation(Array* code) {
-    //TODO format output
+/**
+Takes a translated code and prints it to uart
+*/
+void print_translation(Array* code) {
 	for(size_t i = 0; i < code.used; i++) {
-        if () {
-		}
+        sprintf("%s", code.array[i]);
 	}
-    return 0;
 }

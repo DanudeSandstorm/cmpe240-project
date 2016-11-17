@@ -1,5 +1,4 @@
 #include "tmod.h"
-#include "printf.h"
 #include "array.h"
 
 int translate(Array* mcode, char* input, size_t charsGot) {
