@@ -29,12 +29,15 @@ int parseCharacter(const char* character){
             case '-':
                 longBlink();
                 break;
+            case ' ':
+                timer_delay_ms(1000); //Delay for spaces
             default:
-                break;
+                return 1;
         }
-        timer_delay_ms(200);
+        timer_delay_ms(200); //Delay between blinks in a character
     }
-   timer_delay_ms(1000);
+   timer_delay_ms(400); //Delays between characters
+   return 0;
 }
 
 /*
