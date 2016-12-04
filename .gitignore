@@ -3,3 +3,4 @@
 /build
 *.docx
 *.pdf
+/Debug

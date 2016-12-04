@@ -1,11 +1,14 @@
 #include "ledmod.h"
-#include "array.h"
+#include "global.h"
 #include "gpio.h"
 #include "system_timer.h"
 
-int output(Array* code) {
-    for(size_t i = 0; i < code.used; i++) {
-        if (parseCharacter(code.array[i]) == 1) {
+/**
+Takes an array of strings
+*/
+int outputLED(char** mcode) {
+    for(int i = 0; i < returnSize; i++) {
+        if (parseCharacter(mcode[i]) == 1) {
             return 1;
         }
     }
@@ -13,15 +16,15 @@ int output(Array* code) {
 }
 
 /**
-Takes a string repensenting a morse code character
+Takes a string representing a morse code character
 Parses and calls the corresponding blink
 Delays between each blink;
 Longer delay after character is printed
 */
-int parseCharacter(const char* character){
-    unsigned int size = length(input);
+int parseCharacter(char* mcharacter){
+    unsigned int size = length(mcharacter);
     for (unsigned int i = 0; i < size; i++) {
-        switch(character[i])
+        switch(mcharacter[i])
         {
             case '.':
                 shortBlink();

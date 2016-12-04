@@ -1,19 +1,20 @@
 #include "tmod.h"
-#include "array.h"
+#include "global.h"
 
-int translate(Array* mcode, char* input, size_t charsGot) {
+int translate(char** mcode, char* input, size_t charsGot) {
 	//For each character in inputed string
 	for (size_t i = 0; i < charsGot; ++i) {
-		char ch = buffer[i];
+		char ch = input[i];
 
 		//Do lookup here
-		char* tran;
-		if ((tran = lookup(ch)) == "invalid") {
+		char* translation;
+		if ((translation = lookup(ch)) == "invalid") {
 			continue;
 		}
-
+		
 		//Add translated value to "mcode"
-		insertArray(&mcode, tran);
+		mcode[returnSize] = translation;
+		returnSize++;
 	}
 	
 	return 0;
