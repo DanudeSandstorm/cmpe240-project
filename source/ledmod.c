@@ -35,7 +35,7 @@ int parseCharacter(char* mcharacter){
                 longBlink();
                 break;
             case ' ':
-                timer_delay_ms(1000); //Delay for spaces
+                timer_delay_ms(400); //Delay for spaces
             default:
                 return 1;
         }
@@ -54,7 +54,7 @@ turns off LED
 void shortBlink() {
     gpio[GPSET0] |= 1 << 16;
 
-    timer_delay_ms(200);
+    timer_delay_ms(300);
 
     gpio[GPCLR0] |= 1 << 16;
 }
@@ -69,7 +69,7 @@ void longBlink() {
 
     gpio[GPSET0] |= 1 << 16;
 
-    timer_delay_ms(400);
+    timer_delay_ms(500);
 
     gpio[GPCLR0] |= 1 << 16;
 
