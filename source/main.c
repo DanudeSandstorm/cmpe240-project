@@ -1,14 +1,19 @@
 #include "uart.h"
 #include "gpio.h"
+#include "printf.h"
+
 #include "global.h"
 #include "tmod.h"
 #include "ledmod.h"
-#include "printf.h"
+
+int returnSize = 0;
 
 void print_translation(char** code);
 
 int main()
 {
+    const int bufferSize = 1024;
+
     // Init GPIO select for external LED
     gpio[GPFSEL1] = 0x040000; // Selected pin 16
 

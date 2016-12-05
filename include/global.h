@@ -1,8 +1,6 @@
 #ifndef CONST_H
 #define CONST_H
 
-const int bufferSize = 1024;
-
-int returnSize = 0;
+extern int returnSize;
 
 #endif //CONST_H

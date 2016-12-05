@@ -1,7 +1,9 @@
-#include "ledmod.h"
-#include "global.h"
 #include "gpio.h"
 #include "system_timer.h"
+
+#include "ledmod.h"
+#include "global.h"
+
 
 /**
 Takes an array of strings
