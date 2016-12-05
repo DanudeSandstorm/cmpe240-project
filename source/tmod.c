@@ -8,7 +8,7 @@ int translate(char** mcode, char* input, size_t charsGot) {
 
 		//Do lookup here
 		char* translation;
-		if ((translation = lookup(ch)) == "invalid") {
+		if ((translation = (char*)lookup(ch))[0] == '!') {
 			continue;
 		}
 		
@@ -27,24 +27,24 @@ Returns space for space
 Returns invalid if not a morse character
 Uses offset for ascii char values to relative position in table
 */
-char* lookup(char ch) {
+const char* lookup(char ch) {
 	if (ch == ' ') return " ";
 	
 	int input = ch;
 	//Numbers
-	if ((input >= 48)) && (input <= 57)) {
+	if ((input >= 48) && (input <= 57)) {
 		input -= 48 + 26; //offset plus alphabet size
 	}
 	//Uppercase
-	else if ((input >= 65)) && (input <= 90)) {
+	else if ((input >= 65) && (input <= 90)) {
 		input -= 65;
 	}
 	//Lowercase
-	else if ((input >= 97)) && (input <= 122)){
+	else if ((input >= 97) && (input <= 122)){
 		input -= 97;
 	}
 	else {
-		return "invalid";
+		return "!";
 	}
 
 	return lookuptable[input];
