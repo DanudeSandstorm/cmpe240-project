@@ -20,6 +20,8 @@ int main()
     init_uart();
     char buffer [bufferSize];
     
+    printf("Input characters to be translated to Morse Code\r\n");
+
     char* mcode[bufferSize + 1];
     while (1) {
         returnSize = 0;
@@ -28,6 +30,7 @@ int main()
         if (translate(mcode, buffer, charsGot) == 0) {
             print_translation(mcode);
             outputLED(mcode);
+            printf("\r\n");
         }
 
     }
@@ -39,6 +42,6 @@ Takes a translated code and prints it to uart
 */
 void print_translation(char** mcode) {
 	for(int i = 0; i < returnSize; i++) {
-        printf("%s", mcode[i]);
+        printf("%s ", mcode[i]);
 	}
 }
